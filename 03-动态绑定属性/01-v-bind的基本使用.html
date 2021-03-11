@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+<body>
+ <div id="app">
+  <img v-bind:src="imgUrl" alt="">
+	 <a v-bind:href="aHref">hhhhhh</a>
+<!--	 语法糖-->
+  <img :src="imgUrl" alt="">
+	 <a :href="aHref">hhhhhh</a>
+	 
+	 <div class=""></div>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hello',
+	    imgUrl: 'https://cn.vuejs.org/images/search.png',
+	    aHref:"https://www.baidu.com"
+    }
+  })
+</script>
+</body>
