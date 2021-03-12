@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  
+  <style>
+  </style>
+</head>
+<body>
+<!--v-if:当条件为false时，包含v-if指令的元素，根本不会存在dom中    当只需要切换一次-->
+<!--v-show:当条件为false时，包含v-if指令的元素只是给我们的元素添加一个行内样式：display：none   当频率切换很高-->
+<div id="app">
+  {{message}}
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:"你好"
+    }
+  })
+</script>
+</body>
