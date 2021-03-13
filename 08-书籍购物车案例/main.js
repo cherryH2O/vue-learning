@@ -48,6 +48,7 @@ const app = new Vue({
   },
   computed: {
     totalPrice() {
+      // 1. for(let i=0;i<this.books.length;i++)
       // let totalPrice = 0;
       // for(let i=0;i<this.books.length;i++) {
       //   totalPrice += this.books[i].price * this.books[i].count;
@@ -55,13 +56,29 @@ const app = new Vue({
       // return totalPrice
 
 
-      // 2, for(let i in this.books)
-      let totalPrice = 0;
-      for(let i in this.books) {
-        totalPrice += this.books[i].price * this.books[i].count;
-      }
-      return totalPrice
+      // 2. for(let i in this.books)
+      // let totalPrice = 0;
+      // for(let i in this.books) {
+      //   totalPrice += this.books[i].price * this.books[i].count;
+      // }
+      // return totalPrice
+
+      // 3. for(let item of this.books)
+      // let totalPrice = 0;
+      // for(let item of this.books) {
+      //   totalPrice += item.price*item.count
+      // }
+      // return totalPrice
+
+
+      // 4.reduce 作用——对数组中所有的内容进行汇总（相加或相乘）
+      // filter 中的回调函数有一个要求：必须返回一个boolean
+      // true：函数内部会自动将这次回调的n加入这个新的数组中
+      // false：函数内部会自动过滤n
+      // map 函数的使用 返回的值作为新值加入数组中
+      return this.books.map(n=> n.price * n.count).reduce((pre,n)=>pre+n);
     }
+
   },
   filters: {
     showPrice(price) {
