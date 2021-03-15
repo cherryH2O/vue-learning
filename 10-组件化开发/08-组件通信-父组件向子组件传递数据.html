@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  
+  <style>
+  </style>
+</head>
+<body>
+<div id="app">
+<!--<cpn v-bind:cmovies="movies" :cmessage="message"></cpn>-->
+<cpn :cmovies="movies" :cmessage="message"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是标题1</h2>
+    <ul>
+      <li v-for="item in cmovies">{{item}}</li>
+    </ul>
+    <p>我是{{cmessage}}</p>
+    <p>我是{{cmovies}}</p>
+  </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+  // 父传子 props
+  const cpn = {
+    template: '#cpn',
+    // props:['cmovies','cmessage']
+    props: {
+      // 1.类型限制
+      cmovies:Array,
+      // 2、提供一些默认值
+      cmessage:String
+    }
+  }
+  
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:"你好",
+      movies:['1','2','3','4']
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+</body>
